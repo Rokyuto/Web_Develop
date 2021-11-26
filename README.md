@@ -1,2 +1,2 @@
 # Web_Develop
-Connect_base.php is the base way to connect your html site with database. He is just a model!!!
+connect_base.php is the base way to connect your html site with database. He is just a model!!!
