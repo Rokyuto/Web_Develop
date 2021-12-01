@@ -1,0 +1,26 @@
+body{
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.background{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: url("My_Images/BLACKPINK.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+}
+.main-title{
+  font-size: 3vw;
+  color: #000000;
+  background: #ffffff;
+  padding: 6px 10px;
+  mix-blend-mode: screen;
+}
