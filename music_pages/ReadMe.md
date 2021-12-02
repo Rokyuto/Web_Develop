@@ -1,1 +1,1 @@
-# DOWNLOAD BLACKPINK "HOW YOU LIKE THAT" for music video html page
+# DOWNLOAD BLACKPINK "HOW YOU LIKE THAT" MP4 for music video html page
