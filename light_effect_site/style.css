@@ -71,7 +71,7 @@ body
     height: 200px;
     background: #0f0;
     transform: translateZ(-300px);
-    filter: blur(30px);
+    filter: blur(60px);
     box-shadow: 0 0 120px rgba(0,255,0,0.4), 0 0 300px rgba(0,255,0,0.8);
 }
 
@@ -200,6 +200,6 @@ body
     height: 200px;
     background: #ff0000;
     transform: translateZ(-300px);
-    filter: blur(30px);
+    filter: blur(20px);
     box-shadow: 0 0 120px rgba(255,0,0,0.4), 0 0 300px rgba(255,0,0,0.8);
 }
