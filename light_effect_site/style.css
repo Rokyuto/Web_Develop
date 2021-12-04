@@ -147,7 +147,8 @@ body
     left: -225px;
     top: 100px;
     transform-style: preserve-3d;
-    animation: animate 6s linear infinite;
+    animation: animate 3s linear infinite;
+}
 }
 @keyframes animate
 {
