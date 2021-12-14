@@ -15,12 +15,67 @@ body{
   background-size: cover;
   display: flex;
   justify-content: center;
-  align-items: top;
+  align-items: center;
 }
-.main-title{
-  font-size: 3vw;
-  color: #000000;
-  background: #ffffff;
-  padding: 6px 10px;
-  mix-blend-mode: screen;
+.menu
+{
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu li
+{
+  position: absolute;
+  left: -50px;
+  list-style: none;
+  transform-origin: 150px;
+  transition: 0.5s;
+  transition-delay: calc(0.1s * var(--i));
+  transform: rotate(0deg) translateX(125px);
+  font-size: 1.5em;
+}
+.menu.active li
+{
+  transform: rotate(calc(360deg / 4 * var(--i)));
+}
+.menu li a
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  border-radius: 50%;
+  transform: rotate(calc(360deg / -4 * var(--i)));
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+  color: black;
+  transition: 0.5s;
+}
+.menu li a:hover
+{
+  color: #ff1252;
+}
+.toggle
+{
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+    font-size: 2.5em;
+    transition: 1.25s;
+}
+.menu.active .toggle
+{
+  transform: rotate(315deg);
 }
