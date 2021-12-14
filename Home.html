@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html> 
 	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Home</title>
 		<style type="text/css">
 			body {
@@ -11,26 +13,47 @@
 		<link rel="stylesheet" type="text/css" href="Home_Style.css">
 	</head>
 	<body>
-		<script src="Home_Images.js"></script>
-		
-		<div class="background" id="bg">
-		<center>			
-			<h1 class="main-title">Let's begin</h1>
-			<ul>
-				<h2> 
-            		<li><a href="register/Register.html">Register</a></li>
-        		</h2>
-        		<h2>
-        			<li><a href="pictures_site/Pictures.html">Pictures</a></li>
-        		</h2>
-        		<h2>
-        			<li><a href="music_pages/music_video.html">Music Video</a></li>
-        		</h2>
-        		<h2>
-                    <li><a href="music_pages/music_audio.html">Music Audio</a></li>
-                </h2>
-			</ul>
-		</center>
+		<script src="Home_Images.js"></script>		
+		<div class="background" id="bg">			
+			<div class="menu">
+				<div class="toggle"><ion-icon name="add-outline"></ion-icon></div>
+
+				<li style="--i:0;">
+            		<a href="register/Register.html">
+            			<ion-icon name="book-outline"></ion-icon>
+            		</a>
+            	</li>
+
+				<li style="--i:1;">
+					<a href="light_effect_site/Light_Effect.html">
+						<ion-icon name="cube-outline"></ion-icon>						
+					</a>
+				</li>
+
+				<li style="--i:2;">
+        			<a href="music_pages/music_video.html">
+        				<ion-icon name="play-outline"></ion-icon>
+        			</a>
+				</li>
+
+				<li style="--i:3;">
+        			<a href="music_pages/music_audio.html">
+        				<ion-icon name="musical-notes-outline"></ion-icon>
+        			</a>
+        		</li>
+        	</div>
 		</div>
+		
+		<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+		<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+		<script>
+		let toggle = document.querySelector('.toggle');
+		let menu = document.querySelector('.menu');
+		toggle.onclick = function(){
+			menu.classList.toggle('active')
+		}
+
+	</script>
 	</body>
 </html>
