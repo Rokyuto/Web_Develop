@@ -1,34 +1,35 @@
+// Initialize the Website Canvas as Global Variables
+const myCanvas = document.querySelector("#canvas"); // Get the Website canvas
+const ctx = myCanvas.getContext("2d"); // Get 2d Context of the myCanvas
+// On Page Loading
 window.addEventListener("load", () => {
-    const myCanvas = document.querySelector("#canvas"); // Get the Website canvas
-    const ctx = myCanvas.getContext("2d"); // Get 2d Context of the myCanvas
-
+    
     // Resize myCanvas
-    f_resizeMyCanvas(myCanvas);
+    f_resizeMyCanvas(myCanvas)
 
     // Variables
-    let = isPainting = false; // Bool for is Painting
+    let = isPainting = false // Bool for is Painting
 
     function f_startPosition(e) {
-        isPainting = true; // Start Painting
-        f_draw(e); // Can Draw Dots
+        isPainting = true // Start Painting
+        f_draw(e) // Can Draw Dots
     }
 
     function f_endPosition() {
-        isPainting = false; // Stop Painting
-        ctx.beginPath(); // Will Create new Drawing Line on next MouseDown Event
+        isPainting = false // Stop Painting
+        ctx.beginPath() // Will Create new Drawing Line on next MouseDown Event
     }
 
     // Function with event
     function f_draw(e) {
         if (!isPainting) { return } // It will not do anything
         ctx.lineWidth = 20; // Line width
-        //Change Width
         ctx.lineCap = 'round'; // Line Circle Form
 
         // Draw Line
         ctx.lineTo(e.clientX, e.clientY) // Create Line on Client Mouse X and Y Positions
-        ctx.stroke();
-        ctx.BeginPath(); // Start drawing
+        ctx.stroke()
+        ctx.BeginPath() // Start drawing
         ctx.moveTo(e.clientX, e.clientY); // Draw Line following Client Mouse X and Y Positions
     }
 
@@ -39,7 +40,23 @@ window.addEventListener("load", () => {
 
 });
 
+
+function changeColor(color){
+    if(color=='red'){
+        ctx.strokeStyle = 'red'
+    }else if(color=='blue'){
+        ctx.strokeStyle = 'blue'
+    }
+    else if(color=="green"){
+        ctx.strokeStyle = "green"
+    }
+    else if(color=="black"){
+        ctx.strokeStyle = "black"
+    }
+
+}
+
 function f_resizeMyCanvas(myCanvas) {
-    myCanvas.width = window.innerWidth - 8;
-    myCanvas.height = window.innerHeight - 100;
+    myCanvas.width = window.innerWidth - 8
+    myCanvas.height = window.innerHeight - 100
 }
