@@ -1,0 +1,71 @@
+body {
+    background-color: #555;
+}
+
+#tab_grid {
+    width: 1457px;
+    height: 765px;
+    border: 5px solid #999;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 1px;
+    margin: auto;
+    margin-top: 20px;
+    background-color: #999;
+    box-shadow: 0px 0px 20px white;
+}
+
+.clks {
+    height: 250px;
+    width: 360px;
+    font-size: 0.1px;
+} 
+
+#p11 {
+    background: url('Images/p11.png');
+}
+
+#p12 {
+    background: url('Images/p12.png');
+}
+
+#p13 {
+    background: url('Images/p13.png');
+}
+
+#p14 {
+    background: url('Images/p14.png');
+}
+
+#p21 {
+    background: url('Images/p21.png');
+}
+
+#p22 {
+    background: url('Images/p22.png');
+}
+
+#p23 {
+    background: url('Images/p23.png');
+}
+
+#p24 {
+    background: url('Images/p24.png');
+}
+
+#p31 {
+    background: url('Images/p31.png');
+}
+
+#p32 {
+    background: url('Images/p32.png');
+}
+
+#p33 {
+    background: url('Images/p33.png');
+}
+
+#p34 {
+    background: url('Images/p34.png');
+}
