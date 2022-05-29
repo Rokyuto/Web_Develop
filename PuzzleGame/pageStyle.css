@@ -69,3 +69,8 @@ body {
 #p34 {
     background: url('Images/p34.png');
 }
+
+#launch {
+    width: 170px;
+    margin: auto;
+}
