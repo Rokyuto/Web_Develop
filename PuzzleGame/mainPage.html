@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html >
     <head>
         <meta charset="UTF-8"> <!-- to be able to display languege different from english -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,26 +9,29 @@
     </head>
 
     <body>
-        <div id="moves"></div>
+        <div id="moves">Moves: 0</div>
         <div id="tab_grid">
-            <div class="clks" id="p11">11</div>
-            <div class="clks" id="p12">12</div>
-            <div class="clks" id="p13">13</div>
-            <div class="clks" id="p14">14</div>
+            <div class="clks" id="p11" onclick="switching('p11');">11</div>
+            <div class="clks" id="p12" onclick="switching('p12');">12</div>
+            <div class="clks" id="p13" onclick="switching('p13');">13</div>
+            <div class="clks" id="p14" onclick="switching('p14');">14</div>
 
-            <div class="clks" id="p21">21</div>
-            <div class="clks" id="p22">22</div>
-            <div class="clks" id="p23">23</div>
-            <div class="clks" id="p24">24</div>
+            <div class="clks" id="p21" onclick="switching('p21');">21</div>
+            <div class="clks" id="p22" onclick="switching('p22');">22</div>
+            <div class="clks" id="p23" onclick="switching('p23');">23</div>
+            <div class="clks" id="p24" onclick="switching('p24');">24</div>
 
-            <div class="clks" id="p31">31</div>
-            <div class="clks" id="p32">32</div>
-            <div class="clks" id="p33">33</div>
-            <div class="clks" id="p34">34</div>
-
+            <div class="clks" id="p31" onclick="switching('p31');">31</div>
+            <div class="clks" id="p32" onclick="switching('p32');">32</div>
+            <div class="clks" id="p33" onclick="switching('p33');">33</div>
+            <div class="clks" id="p34" onclick="switching('p34');">34</div>
         </div>
-        <div id="launch">Start Game</div>
         
+        <div id="launch" onclick="start_game()">Start Game</div>
+
+        <script src="pageScript.js"></script>
+
     </body>
+
 
 </html>
