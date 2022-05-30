@@ -82,6 +82,7 @@ function switching(cell) {
                     document.getElementById('moves').textContent="Moves:" + moves_count;
                 }
             break;
+
             case 'p12':
                 if(document.getElementById('p11').textContent =='34'){
                     var temp_val = document.getElementById('p11').textContent;
@@ -114,6 +115,7 @@ function switching(cell) {
                     document.getElementById('moves').textContent="Moves:" + moves_count;
                 }
             break;
+
             case 'p13':
                 if(document.getElementById('p12').textContent =='34'){
                     var temp_val = document.getElementById('p12').textContent;
@@ -146,10 +148,34 @@ function switching(cell) {
                     document.getElementById('moves').textContent="Moves:" + moves_count;
                 }
             break;
+            
+            case 'p14':
+                if(document.getElementById('p13').textContent =='34'){
+                    var temp_val = document.getElementById('p13').textContent;
+                    document.getElementById('p13').textContent = document.getElementById('p14').textContent;
+                    document.getElementById('p14').textContent = temp_val;
+
+                    document.getElementById('p14').style.background = 'url(Images/p'+document.getElementById('p14').textContent+'.png)';
+                    document.getElementById('p13').style.background = 'url(Images/p'+document.getElementById('p13').textContent+'.png)';
+                    moves_count++;
+                    document.getElementById('moves').textContent="Moves:" + moves_count;
+                }
+                if(document.getElementById('p24').textContent =='34'){
+                    var temp_val = document.getElementById('p24').textContent;
+                    document.getElementById('p24').textContent = document.getElementById('p14').textContent;
+                    document.getElementById('p14').textContent = temp_val;
+
+                    document.getElementById('p14').style.background = 'url(Images/p'+document.getElementById('p14').textContent+'.png)';
+                    document.getElementById('p24').style.background = 'url(Images/p'+document.getElementById('p24').textContent+'.png)';
+                    moves_count++;
+                    document.getElementById('moves').textContent="Moves:" + moves_count;
+                }
+            break;
+
             case 'p21':
                 if(document.getElementById('p11').textContent =='34'){
                     var temp_val = document.getElementById('p11').textContent;
-                    document.getElementById('p21').textContent = document.getElementById('p11').textContent;
+                    document.getElementById('p11').textContent = document.getElementById('p21').textContent;
                     document.getElementById('p21').textContent = temp_val;
 
                     document.getElementById('p21').style.background = 'url(Images/p'+document.getElementById('p21').textContent+'.png)';
@@ -177,9 +203,238 @@ function switching(cell) {
                     moves_count++;
                     document.getElementById('moves').textContent="Moves:" + moves_count;
                 }
+            break;
 
+            case 'p22':
+                if(document.getElementById('p21').textContent =='34'){
+                    var temp_val = document.getElementById('p21').textContent;
+                    document.getElementById('p21').textContent = document.getElementById('p22').textContent;
+                    document.getElementById('p22').textContent = temp_val;
+
+                    document.getElementById('p21').style.background = 'url(Images/p'+document.getElementById('p21').textContent+'.png)';
+                    document.getElementById('p22').style.background = 'url(Images/p'+document.getElementById('p22').textContent+'.png)';
+                    moves_count++;
+                    document.getElementById('moves').textContent="Moves:" + moves_count;
+                }
+                if(document.getElementById('p12').textContent =='34'){
+                    var temp_val = document.getElementById('p12').textContent;
+                    document.getElementById('p12').textContent = document.getElementById('p22').textContent;
+                    document.getElementById('p22').textContent = temp_val;
+
+                    document.getElementById('p12').style.background = 'url(Images/p'+document.getElementById('p12').textContent+'.png)';
+                    document.getElementById('p22').style.background = 'url(Images/p'+document.getElementById('p22').textContent+'.png)';
+                    moves_count++;
+                    document.getElementById('moves').textContent="Moves:" + moves_count;
+                }
+                if(document.getElementById('p23').textContent =='34'){
+                    var temp_val = document.getElementById('p23').textContent;
+                    document.getElementById('p23').textContent = document.getElementById('p22').textContent;
+                    document.getElementById('p22').textContent = temp_val;
+
+                    document.getElementById('p22').style.background = 'url(Images/p'+document.getElementById('p22').textContent+'.png)';
+                    document.getElementById('p23').style.background = 'url(Images/p'+document.getElementById('p23').textContent+'.png)';
+                    moves_count++;
+                    document.getElementById('moves').textContent="Moves:" + moves_count;
+                }
+                if(document.getElementById('p32').textContent =='34'){
+                    var temp_val = document.getElementById('p32').textContent;
+                    document.getElementById('p32').textContent = document.getElementById('p22').textContent;
+                    document.getElementById('p22').textContent = temp_val;
+
+                    document.getElementById('p22').style.background = 'url(Images/p'+document.getElementById('p22').textContent+'.png)';
+                    document.getElementById('p32').style.background = 'url(Images/p'+document.getElementById('p32').textContent+'.png)';
+                    moves_count++;
+                    document.getElementById('moves').textContent="Moves:" + moves_count;
+                }
+            break;
+            
+            case 'p23':
+                if(document.getElementById('p22').textContent =='34'){
+                    var temp_val = document.getElementById('p22').textContent;
+                    document.getElementById('p22').textContent = document.getElementById('p23').textContent;
+                    document.getElementById('p23').textContent = temp_val;
+
+                    document.getElementById('p23').style.background = 'url(Images/p'+document.getElementById('p23').textContent+'.png)';
+                    document.getElementById('p22').style.background = 'url(Images/p'+document.getElementById('p22').textContent+'.png)';
+                    moves_count++;
+                    document.getElementById('moves').textContent="Moves:" + moves_count;
+                }
+                if(document.getElementById('p13').textContent =='34'){
+                    var temp_val = document.getElementById('p13').textContent;
+                    document.getElementById('p13').textContent = document.getElementById('p23').textContent;
+                    document.getElementById('p23').textContent = temp_val;
+
+                    document.getElementById('p13').style.background = 'url(Images/p'+document.getElementById('p13').textContent+'.png)';
+                    document.getElementById('p23').style.background = 'url(Images/p'+document.getElementById('p23').textContent+'.png)';
+                    moves_count++;
+                    document.getElementById('moves').textContent="Moves:" + moves_count;
+                }
+                if(document.getElementById('p24').textContent =='34'){
+                    var temp_val = document.getElementById('p24').textContent;
+                    document.getElementById('p24').textContent = document.getElementById('p23').textContent;
+                    document.getElementById('p23').textContent = temp_val;
+
+                    document.getElementById('p24').style.background = 'url(Images/p'+document.getElementById('p24').textContent+'.png)';
+                    document.getElementById('p23').style.background = 'url(Images/p'+document.getElementById('p23').textContent+'.png)';
+                    moves_count++;
+                    document.getElementById('moves').textContent="Moves:" + moves_count;
+                }
+                if(document.getElementById('p33').textContent =='34'){
+                    console.log("Swapping")
+                    var temp_val = document.getElementById('p33').textContent;
+                    document.getElementById('p33').textContent = document.getElementById('p23').textContent;
+                    document.getElementById('p23').textContent = temp_val;
+
+                    document.getElementById('p23').style.background = 'url(Images/p'+document.getElementById('p23').textContent+'.png)';
+                    document.getElementById('p33').style.background = 'url(Images/p'+document.getElementById('p33').textContent+'.png)';
+                    moves_count++;
+                    document.getElementById('moves').textContent="Moves:" + moves_count;
+                }
+            break;
+            
+            case 'p24':
+                if(document.getElementById('p14').textContent =='34'){
+                    var temp_val = document.getElementById('p14').textContent;
+                    document.getElementById('p14').textContent = document.getElementById('p24').textContent;
+                    document.getElementById('p24').textContent = temp_val;
+
+                    document.getElementById('p24').style.background = 'url(Images/p'+document.getElementById('p24').textContent+'.png)';
+                    document.getElementById('p14').style.background = 'url(Images/p'+document.getElementById('p14').textContent+'.png)';
+                    moves_count++;
+                    document.getElementById('moves').textContent="Moves:" + moves_count;
+                }
+                if(document.getElementById('p23').textContent =='34'){
+                    var temp_val = document.getElementById('p23').textContent;
+                    document.getElementById('p23').textContent = document.getElementById('p24').textContent;
+                    document.getElementById('p24').textContent = temp_val;
+
+                    document.getElementById('p24').style.background = 'url(Images/p'+document.getElementById('p24').textContent+'.png)';
+                    document.getElementById('p23').style.background = 'url(Images/p'+document.getElementById('p23').textContent+'.png)';
+                    moves_count++;
+                    document.getElementById('moves').textContent="Moves:" + moves_count;
+                }
+                if(document.getElementById('p34').textContent =='34'){
+                    var temp_val = document.getElementById('p34').textContent;
+                    document.getElementById('p34').textContent = document.getElementById('p24').textContent;
+                    document.getElementById('p24').textContent = temp_val;
+
+                    document.getElementById('p24').style.background = 'url(Images/p'+document.getElementById('p24').textContent+'.png)';
+                    document.getElementById('p34').style.background = 'url(Images/p'+document.getElementById('p34').textContent+'.png)';
+                    moves_count++;
+                    document.getElementById('moves').textContent="Moves:" + moves_count;
+                }
+            break;
+
+            case 'p31':
+                if(document.getElementById('p21').textContent =='34'){
+                    var temp_val = document.getElementById('p21').textContent;
+                    document.getElementById('p21').textContent = document.getElementById('p31').textContent;
+                    document.getElementById('p31').textContent = temp_val;
+
+                    document.getElementById('p21').style.background = 'url(Images/p'+document.getElementById('p21').textContent+'.png)';
+                    document.getElementById('p31').style.background = 'url(Images/p'+document.getElementById('p31').textContent+'.png)';
+                    moves_count++;
+                    document.getElementById('moves').textContent="Moves:" + moves_count;
+                }
+                if(document.getElementById('p32').textContent =='34'){
+                    var temp_val = document.getElementById('p32').textContent;
+                    document.getElementById('p32').textContent = document.getElementById('p31').textContent;
+                    document.getElementById('p31').textContent = temp_val;
+
+                    document.getElementById('p31').style.background = 'url(Images/p'+document.getElementById('p31').textContent+'.png)';
+                    document.getElementById('p32').style.background = 'url(Images/p'+document.getElementById('p32').textContent+'.png)';
+                    moves_count++;
+                    document.getElementById('moves').textContent="Moves:" + moves_count;
+                }
+            break;
+            
+            case 'p32':
+                if(document.getElementById('p31').textContent =='34'){
+                    var temp_val = document.getElementById('p31').textContent;
+                    document.getElementById('p31').textContent = document.getElementById('p32').textContent;
+                    document.getElementById('p32').textContent = temp_val;
+
+                    document.getElementById('p31').style.background = 'url(Images/p'+document.getElementById('p31').textContent+'.png)';
+                    document.getElementById('p32').style.background = 'url(Images/p'+document.getElementById('p32').textContent+'.png)';
+                    moves_count++;
+                    document.getElementById('moves').textContent="Moves:" + moves_count;
+                }
+                if(document.getElementById('p22').textContent =='34'){
+                    var temp_val = document.getElementById('p22').textContent;
+                    document.getElementById('p22').textContent = document.getElementById('p32').textContent;
+                    document.getElementById('p32').textContent = temp_val;
+
+                    document.getElementById('p22').style.background = 'url(Images/p'+document.getElementById('p22').textContent+'.png)';
+                    document.getElementById('p32').style.background = 'url(Images/p'+document.getElementById('p32').textContent+'.png)';
+                    moves_count++;
+                    document.getElementById('moves').textContent="Moves:" + moves_count;
+                }
+                if(document.getElementById('p33').textContent =='34'){
+                    var temp_val = document.getElementById('p33').textContent;
+                    document.getElementById('p33').textContent = document.getElementById('p32').textContent;
+                    document.getElementById('p32').textContent = temp_val;
+
+                    document.getElementById('p32').style.background = 'url(Images/p'+document.getElementById('p32').textContent+'.png)';
+                    document.getElementById('p33').style.background = 'url(Images/p'+document.getElementById('p33').textContent+'.png)';
+                    moves_count++;
+                    document.getElementById('moves').textContent="Moves:" + moves_count;
+                }
+            break;
+
+            case 'p33':
+                if(document.getElementById('p32').textContent =='34'){
+                    var temp_val = document.getElementById('p32').textContent;
+                    document.getElementById('p32').textContent = document.getElementById('p33').textContent;
+                    document.getElementById('p33').textContent = temp_val;
+
+                    document.getElementById('p32').style.background = 'url(Images/p'+document.getElementById('p32').textContent+'.png)';
+                    document.getElementById('p33').style.background = 'url(Images/p'+document.getElementById('p33').textContent+'.png)';
+                    moves_count++;
+                    document.getElementById('moves').textContent="Moves:" + moves_count;
+                }
+                if(document.getElementById('p23').textContent =='34'){
+                    var temp_val = document.getElementById('p23').textContent;
+                    document.getElementById('p23').textContent = document.getElementById('p33').textContent;
+                    document.getElementById('p33').textContent = temp_val;
+
+                    document.getElementById('p23').style.background = 'url(Images/p'+document.getElementById('p23').textContent+'.png)';
+                    document.getElementById('p33').style.background = 'url(Images/p'+document.getElementById('p33').textContent+'.png)';
+                    moves_count++;
+                    document.getElementById('moves').textContent="Moves:" + moves_count;
+                }
+                if(document.getElementById('p34').textContent =='34'){
+                    var temp_val = document.getElementById('p34').textContent;
+                    document.getElementById('p34').textContent = document.getElementById('p33').textContent;
+                    document.getElementById('p33').textContent = temp_val;
+
+                    document.getElementById('p33').style.background = 'url(Images/p'+document.getElementById('p33').textContent+'.png)';
+                    document.getElementById('p34').style.background = 'url(Images/p'+document.getElementById('p34').textContent+'.png)';
+                    moves_count++;
+                    document.getElementById('moves').textContent="Moves:" + moves_count;
+                }
+            break;
 
             case 'p34':
+                if(document.getElementById('p33').textContent =='34'){
+                    var temp_val = document.getElementById('p33').textContent;
+                    document.getElementById('p33').textContent = document.getElementById('p34').textContent;
+                    document.getElementById('p34').textContent = temp_val;
+
+                    document.getElementById('p33').style.background = 'url(Images/p'+document.getElementById('p33').textContent+'.png)';
+                    document.getElementById('p34').style.background = 'url(Images/p'+document.getElementById('p34').textContent+'.png)';
+                    moves_count++;
+                    document.getElementById('moves').textContent="Moves:" + moves_count;
+                }
+                if(document.getElementById('p24').textContent =='34'){
+                    var temp_val = document.getElementById('p24').textContent;
+                    document.getElementById('p24').textContent = document.getElementById('p34').textContent;
+                    document.getElementById('p34').textContent = temp_val;
+
+                    document.getElementById('p24').style.background = 'url(Images/p'+document.getElementById('p24').textContent+'.png)';
+                    document.getElementById('p34').style.background = 'url(Images/p'+document.getElementById('p34').textContent+'.png)';
+                    moves_count++;
+                    document.getElementById('moves').textContent="Moves:" + moves_count;
+                }
 
                 if(check_win())
                 {
@@ -201,8 +456,9 @@ function switching(cell) {
 
                         setTimeout(back_to_normal,5000);
 
-                    },500);
+                    },5000);
                 }
+            break;
         }
     }
 }
