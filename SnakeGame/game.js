@@ -2,9 +2,13 @@
 
 const SNAKE_SPEED = 1 // Snake moves 1 times per second
 let lastRenderTime = 0
+
 let inputDirection = {x: 0, y: 0} // Initial snake position
 let lastInputDirection = {x: 0, y: 0} // Last snake position
 const snakeBody = [{ x: 10, y: 11 }] // Array with snake's segments and their XY positions in the grid
+
+let food = {x: 10, y: 1 }
+
 const gameBoard = document.getElementById('gameBoard') // Get the game board from the main document/page (index.html)
 
 // Loop Function
@@ -35,6 +39,19 @@ function f_Update() {
     // Snake Moving Direction
     snakeBody[0].x += inputDirect.x // X Direction
     snakeBody[0].y += inputDirect.y // Y Direction
+
+    f_FoodUpdate()
+
+}
+
+// Draw Function - Draw Snake, 
+function f_Draw(gameBoard) {
+
+    // Remove the previous pieces
+    gameBoard.innerHTML = ''
+
+    f_DrawSnake(gameBoard) // Call Draw Snake Function
+    f_DrawFood(gameBoard) // Call DrAw Food Function
 }
 
 // Function to Iterate the snakeBody and update the fragments positions
@@ -46,6 +63,10 @@ function f_SnakeUpdate(){
         // ... is to duplicate a Object - to prevent any reference problems
         snakeBody[i + 1] = { ...snakeBody[i] }; // {...SNAKE_BODY[i] } is going to create a duplicate of our snake at position i and set it to the next segment
     }
+}
+
+function f_FoodUpdate() {
+
 }
 
 window.addEventListener('keydown',e => {
@@ -74,12 +95,8 @@ function f_getInputDirection(){
     return inputDirection // Return the direction
 }
 
-// Draw Function - Draw Snake, 
-function f_Draw(gameBoard) {
-
-    // Remove the previous pieces
-    gameBoard.innerHTML = ''
-
+// Draw Snake Function
+function f_DrawSnake(gameBoard){
     // Draw snake fragments
     snakeBody.forEach(currentSegment => {
         const snakeElement = document.createElement("div") // Create div element (snake segment) on the main document (gameBoard)
@@ -88,4 +105,12 @@ function f_Draw(gameBoard) {
         snakeElement.classList.add('snake') // Add the snake element to the snake class list to be sure it will be visualized
         gameBoard.appendChild(snakeElement) // Append the current snake element to the gameBoard as child
     })
+}
+
+function f_DrawFood(gameBoard){
+    const foodElement = document.createElement("div") // Create div element (food segment) on the main document (gameBoard)
+    foodElement.style.gridRowStart = food.y // Draw the Current foodfood Segment on a row with x location
+    foodElement.style.gridColumnStart = food.x // Draw the Current food Segment on a column with y location
+    foodElement.classList.add('food') // Add the food element to the food class list to be sure it will be visualized
+    gameBoard.appendChild(foodElement) // Append the current food element to the gameBoard as child
 }
