@@ -2,14 +2,13 @@
 
 const SNAKE_SPEED = 1 // Snake moves 1 times per second
 let lastRenderTime = 0
-const snakeBody = [ 
-    { x: 10, y: 11 },
-    { x: 11, y: 11 },
-    { x: 12, y: 11 } ] // Array with snake's segments and their XY positions in the grid
+let inputDirection = {x: 0, y: 0} // Initial snake position
+let lastInputDirection = {x: 0, y: 0} // Last snake position
+const snakeBody = [{ x: 10, y: 11 }] // Array with snake's segments and their XY positions in the grid
 const gameBoard = document.getElementById('gameBoard') // Get the game board from the main document/page (index.html)
 
 // Loop Function
-function f_mainLoop(currentTime){
+function f_mainLoop(currentTime) {
 
     window.requestAnimationFrame(f_mainLoop) // Request when is the Next Frame Render
 
@@ -17,7 +16,7 @@ function f_mainLoop(currentTime){
     const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000 // Divide to 1000 to convert the milliseconds to seconds
 
     // Check if seconds since last render are less than the time between the two renders
-    if(secondsSinceLastRender < 1 / SNAKE_SPEED) return // 1 seconds is the time between the two moves/renders (delay)
+    if (secondsSinceLastRender < 1 / SNAKE_SPEED) return // 1 seconds is the time between the two moves/renders (delay)
 
     lastRenderTime = currentTime // Update the last render time
     console.log(currentTime)
@@ -29,26 +28,59 @@ function f_mainLoop(currentTime){
 window.requestAnimationFrame(f_mainLoop) // Call Loop Function
 
 // Update Function - Update Snake Lenght, Snake Movement
-function f_Update(){
+function f_Update() {
+    const inputDirect = f_getInputDirection() // Update the Snake Direction based on the Inputed Direction
+    f_SnakeUpdate() // Call Function to Update the Snake Fragments' positions
+
+    // Snake Moving Direction
+    snakeBody[0].x += inputDirect.x // X Direction
+    snakeBody[0].y += inputDirect.y // Y Direction
+}
+
+// Function to Iterate the snakeBody and update the fragments positions
+function f_SnakeUpdate(){
     // Second-to-last segment of the snake body loop 
-    for(var i = snakeBody.length - 2; i >= 0; i--) // From bottom to top of the snake
+    for (var i = snakeBody.length - 2; i >= 0; i--) // From bottom to top of the snake
     {
         // SNAKE_BODY[i + 1] -> Get the segment after the current segment (BOTTOM after Current)
         // ... is to duplicate a Object - to prevent any reference problems
-        snakeBody[i + 1] = {...snakeBody[i] }; // {...SNAKE_BODY[i] } is going to create a duplicate of our snake at position i and set it to the next segment
-    } 
+        snakeBody[i + 1] = { ...snakeBody[i] }; // {...SNAKE_BODY[i] } is going to create a duplicate of our snake at position i and set it to the next segment
+    }
+}
 
-    // Snake Moving
-    snakeBody[0].x +=1
-    snakeBody[0].y += 0
+window.addEventListener('keydown',e => {
+    switch (e.key) {
+        case 'ArrowUp':
+            if(lastInputDirection.y !== 0) break; // If already moving in any Y direction -> do nothing || Can't make 180 degrees rotation
+            inputDirection = {x:0, y: -1} // Change the direction
+            break
+        case 'ArrowDown':
+            if(lastInputDirection.y !== 0) break; // If already moving in any Y direction -> do nothing || Can't make 180 degrees rotation
+            inputDirection = {x:0, y:1} // Change the direction
+            break
+        case 'ArrowLeft':
+            if(lastInputDirection.x !== 0) break; // If already moving in any X direction -> do nothing || Can't make 180 degrees rotation
+            inputDirection = {x:-1, y:0} // Change the direction
+            break
+        case 'ArrowRight':
+            if(lastInputDirection.x !== 0) break; // If already moving in any X direction -> do nothing || Can't make 180 degrees rotation
+            inputDirection = {x:1, y:0} // Change the direction
+            break
+    }
+})
+
+function f_getInputDirection(){
+    lastInputDirection = inputDirection // Update the last input direction
+    return inputDirection // Return the direction
 }
 
 // Draw Function - Draw Snake, 
-function f_Draw(gameBoard){
+function f_Draw(gameBoard) {
 
     // Remove the previous pieces
     gameBoard.innerHTML = ''
 
+    // Draw snake fragments
     snakeBody.forEach(currentSegment => {
         const snakeElement = document.createElement("div") // Create div element (snake segment) on the main document (gameBoard)
         snakeElement.style.gridRowStart = currentSegment.y // Draw the Current Snake Segment on a row with x location
