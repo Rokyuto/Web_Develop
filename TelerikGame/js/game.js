@@ -4,22 +4,27 @@ const game = new Phaser.Game(1000, 900, Phaser.AUTO, 'game-canvas', { preload, c
 let space;
 let spaceVeloctiry = 2;
 
+let playButton;
+let isGameStarted = false;
+
 let leftButton;
 let rightButton;
 let fireButton;
 
 let speed = 15;
 let player;
-let lifes = []
+var lifes = []
+let score;
+let scoreLabel;
 
 let bullets;
 let bulletTime = 0;
 
 let enemies;
+let explosion;
+let enemyPassLabel;
 
 let timer;
-
-let explosion;
 
 function preload() {
     game.load.image("bgd","pictures/backgrounds/background-starfield.png");
@@ -28,26 +33,51 @@ function preload() {
     game.load.image("enemy","pictures/backgrounds/ship (1).png");
     game.load.spritesheet("explosion","pictures/spriteSheet/explosion.320x320.5x5.png",320/5,320/5);
     game.load.image("lifeIcon","pictures/backgrounds/ship (3).png");
+    game.load.image("startButton","pictures/backgrounds/button.png");
 
 }
     
 function create() {
+    playButton = game.add.button(game.world.centerX,game.world.centerY,"startButton", gameStart, this, 2, 1, 0);
+    playButton.scale.setTo(0.75);
+    playButton.anchor.setTo(0.5,0.5);
+}
+
+function update(){
+    if(isGameStarted){
+        bgdMovement();
+        playerMovement();
+        shootBullet();
+        enemyMovement(4);
+
+        game.physics.arcade.overlap(bullets,enemies,collisionHandler,null,this); // Call Overlap Event
+        game.physics.arcade.overlap(player,enemies,takeLife,null,this);
+    }
+}
+
+// -------------- GAME FUNCTIONS --------------
+
+function gameStart(){
+    isGameStarted = true;
     createBgd();
     createButtons();
     createPlayer();
     playerLifeSet();
+    createPlayerScore();
     createBullets();
     createEnemies();
+    game.physics.setBoundsToWorld();
 }
 
-function update(){
-    bgdMovement();
-    playerMovement();
-    shootBullet();
-    enemyMovement(10);
+function gameOver() {
+    var style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
+    let gameOverLabel = game.add.text(game.world.centerX, game.world.centerY - 150, "GAME OVER :(",style);
+    gameOverLabel.anchor.setTo(0.5);
+    let scoreLabel = game.add.text(game.world.centerX, game.world.centerY - 100, "Score: " + score,style);
+    scoreLabel.anchor.setTo(0.5);
 
-    game.physics.arcade.overlap(bullets,enemies,collisionHandler,null,this); // Call Overlap Event
-    game.physics.arcade.overlap(player,enemies,takeLife,null,this);
+    isGameStarted = false;
+    create();
 }
 
 // Bullet & Enemy Overlap Collision Handler
@@ -55,6 +85,7 @@ function collisionHandler(bullet,enemy){
     bullet.kill();
     spawnExplosion(enemy.x,enemy.y);
     enemy.kill();
+    updateScore();
 }
 
 // Explosion
@@ -73,7 +104,6 @@ function createEnemies() {
     enemies.enableBody = true;
     enemies.physicsBodyType = Phaser.Physics.ARCADE;
     enemies.setAll('outOfBoundsKill',true);
-    enemies.setAll('checkWorldBounds',true);
     createTimer();
 }
 
@@ -85,12 +115,14 @@ function spawnEnemies() {
         enemy.anchor.setTo(0.5,0.5);
         enemy.scale.setTo(0.75);
         enemies.add(enemy);
+        enemy.checkWorldBounds = true;
+        enemy.events.onOutOfBounds.add(enemyPassPlayer, this);
     }
 }
 
 function createTimer() {
     timer = game.time.create(false);
-    timer.loop(1500, spawnEnemies, this);
+    timer.loop(2000, spawnEnemies, this);
     timer.start();
 }
 
@@ -98,6 +130,19 @@ function enemyMovement(velocitySpeed){
     enemies.forEach(function(enemy){
         enemy.y += velocitySpeed;
     })
+    //enemyPassPlayer();
+}
+
+function enemyPassPlayer(){
+    var style = { font: "bold 48px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
+    enemyPassLabel = game.add.text(game.width / 2, game.height /2 - 300, "ENEMY PASSED ",style);
+    enemyPassLabel.anchor.setTo(0.5)
+    game.time.events.add(Phaser.Timer.SECOND * 2, removeEnemyPassLabel, this);
+    takeLife();
+}
+
+function removeEnemyPassLabel(){
+    enemyPassLabel.destroy();
 }
 
 // -------------- BULLET FUNCTIONS --------------
@@ -154,10 +199,10 @@ function createButtons(){
 
 function playerLifeSet(){
     var style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
-    game.add.text(15, 840, "Life: ",style);
-    var initialLifeIconXLocation = 115;
+    game.add.text(15, 15, "Lifes: ",style);
+    var initialLifeIconXLocation = 130;
     for (var i = 0; i <3;i++){
-        var life = game.add.sprite(initialLifeIconXLocation,860,"lifeIcon");
+        var life = game.add.sprite(initialLifeIconXLocation,40,"lifeIcon");
         life.scale.setTo(0.45);
         life.anchor.setTo(0.5,0.5);
         lifes.push(life);
@@ -166,7 +211,7 @@ function playerLifeSet(){
 }
 
 function takeLife(){
-    if(lifes.length > 0){
+    if(lifes.length >= 0){
         var lifeToRemove = lifes[lifes.length-1]
         lifeToRemove.destroy();
         lifes.pop(lifes.length - 1);
@@ -176,13 +221,21 @@ function takeLife(){
     })
     player.kill();
     createPlayer();
-    if(lifes.length >= 0){
+    if(lifes.length <= 0){
         gameOver();
     }
 }
 
-function gameOver() {
-    console.log("GAME OVER")
+function createPlayerScore(){
+    score = 0;
+    var style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
+    scoreLabel = game.add.text(game.width - 15,10, "Score: " + score,style);
+    scoreLabel.anchor.setTo(1,0);
+}
+
+function updateScore(){
+    score += 10;
+    scoreLabel.text = "Score: " + score;
 }
 
 // -------------- BACKGROUND FUNCTIONS --------------
