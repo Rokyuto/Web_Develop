@@ -103,7 +103,7 @@ function createEnemies() {
     enemies = game.add.group();
     enemies.enableBody = true;
     enemies.physicsBodyType = Phaser.Physics.ARCADE;
-    enemies.setAll('outOfBoundsKill',true);
+    //enemies.setAll('outOfBoundsKill',true);
     createTimer();
 }
 
@@ -122,7 +122,7 @@ function spawnEnemies() {
 
 function createTimer() {
     timer = game.time.create(false);
-    timer.loop(2000, spawnEnemies, this);
+    timer.loop(3500, spawnEnemies, this);
     timer.start();
 }
 
