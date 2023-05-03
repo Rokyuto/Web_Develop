@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOGIN</title>
+    <title>Home Page</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../Navbar/navbarStyle.css">
 </head>
 <body>
+    <?php include("../Navbar/navbar.php") ?>
+    <h1>UKTC Showroom</h1>
     <div class="container">
-        <form action="" method="post">
-            <h1>Вписване</h1>
-            
+        <form action="#" method="post">
+            <h2>Вписване</h2>
             <div class="item">
                 <label for="email">Email:</label>
                 <input type="email" name="email" id="email" autocomplete="off" placeholder="Enter Email" required>
@@ -20,12 +22,13 @@
                 <label for="password">Password:</label>
                 <input type="password" name="password" id="password" autocomplete="off" placeholder="Enter Password" required>
             </div>
-            <a href="register.php">DON'T HAVE ACCOUNT</a><br><br>
+            <a href="../RegisterPage/register.php">DON'T HAVE ACCOUNT</a><br><br>
             <div class="button_container">
                 <button type="submit" name="login">LOGIN</button>
             </div>
         </form>
     </div>
+
 </body>
 </html>
 
@@ -52,10 +55,10 @@ if (isset($_POST['login'])) {
         if(password_verify($_POST['password'],$result["password"])){
           $_SESSION['user'] = $result;
           if ($_SESSION['user'][1] == "admin") {
-            // LOCATE TO ADMIN PANEL
+            header("location: ../AdminPanel/page.php");
           }
-          else{
-            header("location: ../HomePage/home.html");
+          else {
+            header("location: ../Gallery/page.php");
           }
           exit;
         }
