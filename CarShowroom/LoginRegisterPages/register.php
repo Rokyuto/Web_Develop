@@ -59,7 +59,7 @@ if ( isset( $_POST['register'] ) ) {
       $sql = "INSERT INTO user ( username, email,password) VALUES (?,?,?)";
       $connection->prepare($sql)->execute([$username,$email,$hash_pass]);
 
-      header("location: ../HomePage/home.php");
+      header("location: ./login.php");
 
     }else{
       echo "Missmatch";

@@ -1,0 +1,10 @@
+body{
+    background-color: coral;
+}
+a{
+    color: rgb(251, 255, 0);
+    text-decoration: none;
+}
+a:active{
+    color: rgb(155, 158, 0);
+}
