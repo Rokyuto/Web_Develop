@@ -8,3 +8,14 @@ a{
 a:active{
     color: rgb(155, 158, 0);
 }
+
+.carContainer{
+    height:33%;
+    width: 100%;
+    border:black 3px solid;
+}
+
+img{
+    height: 100%;
+    width:50%;
+}
