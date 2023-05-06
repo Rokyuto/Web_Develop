@@ -24,6 +24,11 @@ if (isset($_POST['showCars'])) {
     $chosenBrand = $sql->fetchAll();
 }
 
+function loadImages($car,$imgElementId){
+    
+    echo "";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -50,15 +55,23 @@ if (isset($_POST['showCars'])) {
         </select>
         <button type="submit" name="showCars">Show cars</button>
     </form>
-    
+
     <!-- Create DIVs with cars -->
     <?php foreach ($chosenBrand as $car) { ?>
         <div class="carContainer">
-            <img src="<?=$car['carFrontImage'] ?>" alt="FrontImage">
-            <img src="<?=$car['carBackImage'] ?>" alt="Back Image">
-            <img src="<?=$car['carInteriorImage'] ?>" alt="Interior Image">
+            <img id="car<?= $car["car_id"] ?>" src="<?= $car["carFrontImage"] ?>"  alt="">
         </div>
     <?php } ?>
+
+    <script>
+        var images = [ '<?= $car["carFrontImage"] ?>', '<?= $car["carBackImage"] ?>', '<?= $car["carInteriorImage"] ?>' ];
+        function setImage(){
+            var randomIndex = Math.floor(Math.random() * images.length);
+            var randomImage = images[randomIndex];
+            document.getElementById("car<?= $car["car_id"] ?>").src = randomImage;
+        }
+        setInterval(setImage, 3000);
+    </script>
 
 </body>
 </html>

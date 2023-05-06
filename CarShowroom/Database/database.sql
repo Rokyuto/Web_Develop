@@ -22,6 +22,7 @@ CREATE TABLE IF NOT EXISTS car (
     color VARCHAR(45) NOT NULL,
 	price int NOT NULL,
     horsePower int NOT NULL,
+    year year not null,
     images_ID int not null,
     foreign key(images_ID) references carImages(images_ID)
 );
