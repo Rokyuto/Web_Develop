@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS car (
 	price int NOT NULL,
     horsePower int NOT NULL,
     year year not null,
+    description text not null,
     images_ID int not null,
     foreign key(images_ID) references carImages(images_ID)
 );

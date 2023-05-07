@@ -1,0 +1,13 @@
+<form action="#" method="post">
+        <label for="brandSelector">Изберете марка:</label>
+        <select name="brandSelector" id="brandSelector">
+            <option value="" default selected>Изберете марка</option>
+            <option value="Dodge">Dodge</option>
+            <option value="Nissan">Nissan</option>
+            <option value="BMW">BMW</option>
+            <option value="Lamborghini">Lamborghini</option>
+            <option value="Mercedes">Mercedes</option>
+            <option value="Ford">Ford</option>
+            <option value="Maserati">Maserati</option>
+        </select>
+    </form>

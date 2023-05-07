@@ -15,6 +15,9 @@ $sql = $connection->prepare("SELECT * FROM car JOIN carImages on car.images_ID =
 $sql->execute();
 $cars = $sql->fetchAll();
 
+$chosenBrandCars = [];
+$chosenBrand;
+
 ?>
 
 <!DOCTYPE html>
@@ -35,6 +38,13 @@ $cars = $sql->fetchAll();
     <?php 
     foreach ($cars as $car) { ?>
         <div class="carContainer">
+            <div class="carInfo">
+                <h2><?= $car["brand"] . " " . $car["model"] . " " . $car["year"] ?></h2>
+                <p><?= $car["horsePower"] ?> конски сили</p>
+                <p><?= $car["color"] ?> цвят</p>
+                <p><?= $car["description"] ?></p>
+                <p>Цена: <?= $car["price"] ?> евро</p>
+            </div>
             <img id="car<?= $car["car_id"] ?>" src="<?= $car["carFrontImage"] ?>"  alt="">
         </div>
     <?php } ?>

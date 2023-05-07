@@ -1,5 +1,10 @@
 body{
     background-color: coral;
+    /* background-image: url("../Images/Wallpapers/Free-Download-HD-Car-Wallpapers-Images.jpg");
+    background-position: center center;
+    background-size: cover; */
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 a{
     color: rgb(251, 255, 0);
@@ -8,14 +13,32 @@ a{
 a:active{
     color: rgb(155, 158, 0);
 }
-
 .carContainer{
+    display: flex;
+    flex-direction: row;
     height:33%;
     width: 100%;
     border:black 3px solid;
+    margin: 0.3em 0;
 }
-
+.carInfo{
+    text-align: center;
+    color: white;
+    font-size: 1.3em;
+    margin: 0 0.5em;
+}
 img{
     height: 100%;
     width:50%;
+    margin: 0.5em;
+}
+
+@media screen and (max-width: 1000px) {
+    .carInfo{
+        text-align: center;
+        color: white;
+        font-size: 0.75em;
+        margin: 0.5;
+    }
+    
 }
