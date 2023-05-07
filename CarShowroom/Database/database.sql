@@ -27,3 +27,12 @@ CREATE TABLE IF NOT EXISTS car (
     images_ID int not null,
     foreign key(images_ID) references carImages(images_ID)
 );
+
+CREATE TABLE IF NOT EXISTS information (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	CityName VARCHAR(45) NOT NULL,
+	date date NOT NULL,
+    startTime TIME NOT NULL,
+	endTime TIME NOT NULL,
+    cityImage varchar(255) NOT NULL
+);

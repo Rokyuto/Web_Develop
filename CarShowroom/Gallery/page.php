@@ -39,11 +39,13 @@ $chosenBrand;
     foreach ($cars as $car) { ?>
         <div class="carContainer">
             <div class="carInfo">
-                <h2><?= $car["brand"] . " " . $car["model"] . " " . $car["year"] ?></h2>
-                <p><?= $car["horsePower"] ?> конски сили</p>
-                <p><?= $car["color"] ?> цвят</p>
-                <p><?= $car["description"] ?></p>
-                <p>Цена: <?= $car["price"] ?> евро</p>
+                <div class="alignHelper">
+                    <h2><?= $car["brand"] . " " . $car["model"] . " " . $car["year"] ?></h2>
+                    <p><?= $car["horsePower"] ?> конски сили</p>
+                    <p><?= $car["color"] ?> цвят</p>
+                    <p><?= $car["description"] ?></p>
+                    <p>Цена: <?= $car["price"] ?> евро</p>
+                </div>
             </div>
             <img id="car<?= $car["car_id"] ?>" src="<?= $car["carFrontImage"] ?>"  alt="">
         </div>
