@@ -11,23 +11,9 @@ try {
 echo "Connection exception: " . $e->getMessage();
 }
 
-$sql = $connection->prepare("SELECT * FROM car");
+$sql = $connection->prepare("SELECT * FROM car JOIN carImages on car.images_ID = carImages.images_ID ");
 $sql->execute();
 $cars = $sql->fetchAll();
-
-if (isset($_POST['showCars'])) {
-
-    $sql = $connection->prepare("SELECT * FROM car 
-                                JOIN carImages on car.images_ID = carImages.images_ID 
-                                WHERE brand = ?");
-    $sql->execute([ $_POST['brand']]);
-    $chosenBrand = $sql->fetchAll();
-}
-
-function loadImages($car,$imgElementId){
-    
-    echo "";
-}
 
 ?>
 
@@ -45,30 +31,27 @@ function loadImages($car,$imgElementId){
 
     <?php include("../Navbar/navbar.php"); ?>
 
-    <form action="" method="post">
-        <label for="brand">Изберете марка:</label>
-        <select name="brand" required>
-            <option value="" selected>Choose Brand</option>
-            <?php foreach ($cars as $car) { ?>
-                <option value="<?= $car["brand"] ?>"><?= $car["brand"] ?></option>  
-            <?php } ?>
-        </select>
-        <button type="submit" name="showCars">Show cars</button>
-    </form>
-
     <!-- Create DIVs with cars -->
-    <?php foreach ($chosenBrand as $car) { ?>
+    <?php 
+    foreach ($cars as $car) { ?>
         <div class="carContainer">
             <img id="car<?= $car["car_id"] ?>" src="<?= $car["carFrontImage"] ?>"  alt="">
         </div>
     <?php } ?>
-
+    
     <script>
-        var images = [ '<?= $car["carFrontImage"] ?>', '<?= $car["carBackImage"] ?>', '<?= $car["carInteriorImage"] ?>' ];
+        counter = 0;
         function setImage(){
+            <?php foreach ($cars as $car){?>
+            var images = [ '<?= $car["carFrontImage"] ?>', '<?= $car["carBackImage"] ?>', '<?= $car["carInteriorImage"] ?>' ];
             var randomIndex = Math.floor(Math.random() * images.length);
-            var randomImage = images[randomIndex];
+            var randomImage = images[counter];
             document.getElementById("car<?= $car["car_id"] ?>").src = randomImage;
+            <?php } ?>
+            counter++;
+            if(counter >= 3){
+                counter = 0;
+            }
         }
         setInterval(setImage, 3000);
     </script>
