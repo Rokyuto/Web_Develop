@@ -11,6 +11,35 @@ try {
 echo "Connection exception: " . $e->getMessage();
 }
 
+if (isset($_POST["submitCar"])) {
+
+    $frontImage = "../Images/DatabaseImages/" . $_POST['brand'] . $_POST['model'] . "/" . $_POST["carFrontImage"];
+    $backImage = "../Images/DatabaseImages/" . $_POST['brand'] . $_POST['model'] . "/" . $_POST["carBackImage"];
+    $interiorImage = "../Images/DatabaseImages/" . $_POST['brand'] . $_POST['model'] . "/" . $_POST["carInteriorImage"];
+
+    $sqlCarImages = "INSERT INTO carimages(carFrontImage,carBackImage,carInteriorImage) VALUES(?,?,?)";
+    $connection->prepare($sqlCarImages)->execute([ $frontImage , $backImage , $interiorImage ]);
+
+    $newCarImages = $connection->prepare("SELECT *  FROM carimages WHERE carFrontImage = ? AND carBackImage = ? AND carInteriorImage = ? ");
+    $newCarImages->execute([ $frontImage , $backImage , $interiorImage  ]);
+    $result = $newCarImages->fetch();
+
+    $sqlCar = "INSERT INTO car(brand,model,color,price,horsePower,year,description,images_ID) VALUES(?,?,?,?,?,?,?,?)";
+    $connection->prepare($sqlCar)->execute([ $_POST['brand'] , $_POST['model'] , $_POST['color'] , $_POST['price'] , $_POST['horsePower'] , $_POST['year'] , $_POST['description'] , $result['images_ID'] ]);
+
+    echo "<script>alert('Автомобилът е записан в базата данни')</script>";
+
+}
+
+if (isset($_POST["submitCity"])) {
+    $cityImage = "../Images/Cities/" . $_POST["cityImage"];
+
+    $sqlCityImage = "INSERT INTO information(CityName,date,startTime,endTime,cityImage) VALUES(?,?,?,?,?)";
+    $connection->prepare($sqlCityImage)->execute([ $_POST["cityName"] , $_POST["date"] , $_POST["startTime"] , $_POST["endTime"] , $cityImage ]);
+
+    echo "<script>alert('Събитието е записано в базата данни')</script>";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -33,10 +62,11 @@ echo "Connection exception: " . $e->getMessage();
             <div class="container">
                 <input type="text" name="brand" id="brand" autocomplete="off" placeholder="Въведи марка" required>
                 <input type="text" name="model" id="model" autocomplete="off" placeholder="Въведи модел" required>
-                <input type="color" name="color" id="color" autocomplete="off" required>
+                <input type="text" name="color" id="color" autocomplete="off" placeholder="Въведи цвят" required>
                 <input type="number" name="price" id="price" autocomplete="off" placeholder="Въведи цена на автомобила" min="500" required>
                 <input type="number" name="horsePower" id="horsePower" autocomplete="off" min="1" placeholder="Въведи конски сили" required>
-                <input type="number" name="year" id="year" autocomplete="off" placeholder="Въведи година на производство" min="<?php echo date("Y-m-d"); ?>" required>
+                <input type="number" name="year" id="year" autocomplete="off" placeholder="Въведи година на производство" min="1913" required>
+                <textarea name="description" rows="5" cols="40" id="description" autocomplete="off" placeholder="Въведи описание за автомобила" required></textarea>
             </div>
             <div class="item_container">
                 <label for="carFrontImage">Снимка отпред:</label>
@@ -47,11 +77,11 @@ echo "Connection exception: " . $e->getMessage();
                 <input type="file" name="carBackImage" id="carBackImage" autocomplete="off" required>
             </div>
             <div class="item_container">
-                <label for="carInteriorImage">Снимка вътре:</label>
+                <label for="carInteriorImage">Снимка отвътре:</label>
                 <input type="file" name="carInteriorImage" id="carInteriorImage" autocomplete="off" required>
             </div>
             <div class="button_container">
-                <input type="submit" name="submit" id="submit" value="Submit">
+                <input type="submit" name="submitCar" id="submit" value="Submit">
             </div>
         </form>
     </div>
@@ -74,7 +104,7 @@ echo "Connection exception: " . $e->getMessage();
                     <input type="file" name="cityImage" id="cityImage" autocomplete="off" required>
                 </div>
                 <div class="button_container">
-                    <input type="submit" name="submit" id="submit" value="Submit">
+                    <input type="submit" name="submitCity" id="submit" value="Submit">
                 </div>
             </div>
         </form>

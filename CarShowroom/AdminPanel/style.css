@@ -31,7 +31,7 @@ html,body{
     background-color: rgba(128, 128, 128, 0.604);
     padding: 25px 25px 15px 25px;
     max-width: 400px;
-    max-height: 600px;
+    max-height: 800px;
     margin: 1em;
 }
 .container{
@@ -48,13 +48,10 @@ label{
     font-size: 1.3em;
     color: #fff;
 }
-input{
+input,textarea{
     font-size:1.3em;
     padding-left: 5px;
     margin-bottom: 15px;
-}
-textarea{
-    font-size:1em;
 }
 .item_container{
     display: flex;
