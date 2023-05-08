@@ -8,13 +8,13 @@ html,body{
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
     background-image: url("../Images/Wallpapers/Free-Download-HD-Car-Wallpapers-Images.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    background-attachment: fixed;
 }
 .form{
     background-color: rgba(128, 128, 128, 0.604);
@@ -53,10 +53,11 @@ textarea{
 .button_container{
     display: grid;
     place-items: center;
+    font-size: 1.2em;
 }
 #submit{
     width: 100%;
     height: 100%;
-    font-size: 1.2em;
+    color: #fff;
     background-color: rgba(46, 154, 255, 0.8);
 }

@@ -25,28 +25,48 @@ echo "Connection exception: " . $e->getMessage();
 <body>
     <div class="form">
         <form action="#" method="post">
-            <h1>Add Car</h1>
+            <h1>Добавяне на кола</h1>
             <div class="container">
-                <input type="text" name="brand" id="brand" autocomplete="off" placeholder="Enter Car Brand" required>
-                <input type="text" name="model" id="model" autocomplete="off" placeholder="Enter Car Model" required>
-                <input type="color" name="color" id="color" autocomplete="off" placeholder="Enter Car Color" required>
-                <input type="number" name="price" id="price" autocomplete="off" placeholder="Enter Car Price" min="500" required>
-                <input type="number" name="horsePower" id="horsePower" autocomplete="off" min="1" placeholder="Enter Car Horse Power" required>
-                <input type="year" name="year" id="year" autocomplete="off" placeholder="Enter Car Year" min="<?php echo date("Y-m-d"); ?>" required>
+                <input type="text" name="brand" id="brand" autocomplete="off" placeholder="Въведи марка" required>
+                <input type="text" name="model" id="model" autocomplete="off" placeholder="Въведи модел" required>
+                <input type="color" name="color" id="color" autocomplete="off" required>
+                <input type="number" name="price" id="price" autocomplete="off" placeholder="Въведи цена на автомобила" min="500" required>
+                <input type="number" name="horsePower" id="horsePower" autocomplete="off" min="1" placeholder="Въведи конски сили" required>
+                <input type="number" name="year" id="year" autocomplete="off" placeholder="Въведи година на производство" min="<?php echo date("Y-m-d"); ?>" required>
             </div>
             <div class="image_container">
-                <label for="carImage">Car Image:</label>
-                <input type="file" name="carImage" id="carImage" autocomplete="off" placeholder="Enter Car Image" required>
+                <label for="carFrontImage">Снимка отпред:</label>
+                <input type="file" name="carFrontImage" id="carFrontImage" autocomplete="off" required>
+            </div>
+            <div class="image_container">
+                <label for="carBackImage">Снимка отзад:</label>
+                <input type="file" name="carBackImage" id="carBackImage" autocomplete="off" required>
+            </div>
+            <div class="image_container">
+                <label for="carInteriorImage">Снимка вътре:</label>
+                <input type="file" name="carInteriorImage" id="carInteriorImage" autocomplete="off" required>
             </div>
             <div class="button_container">
                 <input type="submit" name="submit" id="submit" value="Submit">
             </div>
         </form>
     </div>
-    <div>
+    <div class="form">
         <form action="#" method="post">
-            <header>Add City</header>
-            
+            <h1>Добавяне на град</h1>
+            <div class="container">
+                <input type="text" name="cityName" id="cityName" autocomplete="off" placeholder="Въведи име" required>
+                <input type="date" name="date" id="date" autocomplete="off" required>
+                <input type="time" name="startTime" id="startTime" autocomplete="off" required>
+                <input type="time" name="endTime" id="endTime" autocomplete="off" required>
+                <div class="image_container">
+                    <label for="cityImage">Снимка:</label>
+                    <input type="file" name="cityImage" id="cityImage" autocomplete="off" required>
+                </div>
+                <div class="button_container">
+                    <input type="submit" name="submit" id="submit" value="Submit">
+                </div>
+            </div>
         </form>
     </div>
 </body>
