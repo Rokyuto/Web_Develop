@@ -21,8 +21,12 @@ echo "Connection exception: " . $e->getMessage();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../Navbar/navbarStyle.css">
 </head>
 <body>
+
+    <?php include("../Navbar/navbar.php"); ?>
+
     <div class="form">
         <form action="#" method="post">
             <h1>Добавяне на кола</h1>
@@ -58,12 +62,12 @@ echo "Connection exception: " . $e->getMessage();
                 <input type="text" name="cityName" id="cityName" autocomplete="off" placeholder="Въведи име" required>
                 <input type="date" name="date" id="date" autocomplete="off" required>
                 <div class="item_container">
-                    <label for="startTime">Начало:</label>
-                    <input type="time" name="startTime" id="startTime" autocomplete="off" required>
+                    <label id="startTime" for="startTime">Начало:</label>
+                    <input type="time" name="startTime" autocomplete="off" required>
                 </div>
                 <div class="item_container">
-                    <label for="endTime">Край:</label>
-                    <input type="time" name="endTime" id="endTime" autocomplete="off" required>
+                    <label id="endTime" for="endTime">Край:</label>
+                    <input type="time" name="endTime" autocomplete="off" required>
                 </div>
                 <div class="item_container">
                     <label for="cityImage">Снимка:</label>
