@@ -45,7 +45,7 @@ input{
 textarea{
     font-size:1em;
 }
-.image_container{
+.item_container{
     display: flex;
     flex-direction: row;
     margin-bottom: 15px;

@@ -34,15 +34,15 @@ echo "Connection exception: " . $e->getMessage();
                 <input type="number" name="horsePower" id="horsePower" autocomplete="off" min="1" placeholder="Въведи конски сили" required>
                 <input type="number" name="year" id="year" autocomplete="off" placeholder="Въведи година на производство" min="<?php echo date("Y-m-d"); ?>" required>
             </div>
-            <div class="image_container">
+            <div class="item_container">
                 <label for="carFrontImage">Снимка отпред:</label>
                 <input type="file" name="carFrontImage" id="carFrontImage" autocomplete="off" required>
             </div>
-            <div class="image_container">
+            <div class="item_container">
                 <label for="carBackImage">Снимка отзад:</label>
                 <input type="file" name="carBackImage" id="carBackImage" autocomplete="off" required>
             </div>
-            <div class="image_container">
+            <div class="item_container">
                 <label for="carInteriorImage">Снимка вътре:</label>
                 <input type="file" name="carInteriorImage" id="carInteriorImage" autocomplete="off" required>
             </div>
@@ -57,9 +57,15 @@ echo "Connection exception: " . $e->getMessage();
             <div class="container">
                 <input type="text" name="cityName" id="cityName" autocomplete="off" placeholder="Въведи име" required>
                 <input type="date" name="date" id="date" autocomplete="off" required>
-                <input type="time" name="startTime" id="startTime" autocomplete="off" required>
-                <input type="time" name="endTime" id="endTime" autocomplete="off" required>
-                <div class="image_container">
+                <div class="item_container">
+                    <label for="startTime">Начало:</label>
+                    <input type="time" name="startTime" id="startTime" autocomplete="off" required>
+                </div>
+                <div class="item_container">
+                    <label for="endTime">Край:</label>
+                    <input type="time" name="endTime" id="endTime" autocomplete="off" required>
+                </div>
+                <div class="item_container">
                     <label for="cityImage">Снимка:</label>
                     <input type="file" name="cityImage" id="cityImage" autocomplete="off" required>
                 </div>
