@@ -36,3 +36,14 @@ CREATE TABLE IF NOT EXISTS information (
 	endTime TIME NOT NULL,
     cityImage varchar(255) NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS testDrive (
+	user_id int	not null,
+    car_id int not null,
+	date date not null,
+    time time not null,
+	userPhone varchar(20) not null,
+    primary key(user_id,car_id,date),
+    foreign key(user_id) references user(user_id),
+    foreign key(car_id) references car(car_id)
+);
