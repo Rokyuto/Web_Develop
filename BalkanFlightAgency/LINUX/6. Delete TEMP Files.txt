@@ -1,0 +1,5 @@
+BASH: Finds all files in the tmp folder, which haven't been accessed for more than 7 days and delete them
+sudo find /tmp -type f -atime +7 -delete
+
+CRON: Run the bash script to delete tmp files EVERY MONDAY in 4:00 AM
+0 4 * * 1 /deleteTMPFiles.sh

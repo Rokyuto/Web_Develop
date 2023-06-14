@@ -1,0 +1,23 @@
+Linux LAMP Server Setup:
+	sudo apt upgrade
+	sudo apt update
+	sudo apt install apache2 -y
+	sudo apt install mysql-server -y
+	sudo apt install php libapache2-mod-php php-mysql -y
+
+LAMP Server:
+	sudo service apache2 status
+	sudo service apache2 start
+	sudo service apache2 stop
+
+Windows - Linux SSH (SCP) Connection Setup:
+	sudo apt install openssh-server
+
+SSH Connection:
+	scp -r source/code/directory user@IP:directory/to/copy/the/project
+
+Webpages' Directory:
+	/var/www/html
+
+To find IP:
+	hostname -I

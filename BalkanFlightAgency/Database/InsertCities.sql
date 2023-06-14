@@ -1,0 +1,15 @@
+use book_flights;
+INSERT INTO Cities (CityCode,CityName,Airport,Country) VALUES ("SOF","Sofia","Sofia Airport","Bulgaria");
+INSERT INTO Cities (CityCode,CityName,Airport,Country) VALUES ("MUN","Munich","Munich International Airport","Germany");
+INSERT INTO Cities (CityCode,CityName,Airport,Country) VALUES ("BCN","Barcelona","Barcelona International Airport","Spain");
+INSERT INTO Cities (CityCode,CityName,Airport,Country) VALUES ("ORY","Paris","Paris Orly Airport","France");
+INSERT INTO Cities (CityCode,CityName,Airport,Country) VALUES ("MAD","Madrid","Adolfo Suarez Madrid-Barajas Airport","Spain");
+INSERT INTO Cities (CityCode,CityName,Airport,Country) VALUES ("BER","Berlin","Berlin Brandenburg Airport","Germany");
+INSERT INTO Cities (CityCode,CityName,Airport,Country) VALUES ("LGW","London","Gatwick Airport","United Kingdom");
+INSERT INTO Cities (CityCode,CityName,Airport,Country) VALUES ("BUD","Budapest","Liszt Ferenc International Airport","Hungary");
+INSERT INTO Cities (CityCode,CityName,Airport,Country) VALUES ("OTP","Bucharest","Henri Coanda International Airport","Romania");
+INSERT INTO Cities (CityCode,CityName,Airport,Country) VALUES ("LIS","Lisbon","Lisbon Airport","Portugal");
+INSERT INTO Cities (CityCode,CityName,Airport,Country) VALUES ("VIE","Vienna","Vienna International Airport","Austria");
+INSERT INTO Cities (CityCode,CityName,Airport,Country) VALUES ("GVA","Geneva","Geneva International Airport","Switzerland");
+INSERT INTO Cities (CityCode,CityName,Airport,Country) VALUES ("MXP","Milan","Malpensa Airport","Italy");
+INSERT INTO Cities (CityCode,CityName,Airport,Country) VALUES ("BOJ","Bourgas","Bourgas Airport","Bulgaria");

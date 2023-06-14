@@ -1,0 +1,4 @@
+use showroom;
+INSERT INTO car(brand,model,color,price,horsePower,year,description,images_ID) values("Dodge","Challenger SRT Hellcat","Червен",67390,707,2018,"Двигателят е бензинов суперчарджър Hemi V8, 6,2-литров . 8-степена автоматична скоростна кутия . Задно предаване . 2 врати",1);
+INSERT INTO car(brand,model,color,price,horsePower,year,description,images_ID) values("Nissan","GT-R R35","Син",99990,565,2018,"Двигателят е бензинов 3,8-литров Twin Turbo V6 . 6-степена автоматична скоростна кутия . Задвижване на 4-рите колела - 4WD . 2 врати",2);
+INSERT INTO car(brand,model,color,price,horsePower,year,description,images_ID) values("Dodge","Charger R/T","Черен",150000,506,1970,"Двигателят е бензинов 426 HEMI V8 . 5-степена ръчна скоростна кутия . Задно предаване . 2 врати",3);

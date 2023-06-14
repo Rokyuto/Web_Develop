@@ -1,0 +1,28 @@
+sudo su
+cd /
+mkdir backup
+
+gedit backup.sh &
+chmod a+x backup.sh
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Bash Script to create BACKUP:
+#!/bin/bash
+
+find "/backup" -type f -exec rm {} \; # Find all files in the backup folder (tar archive with the Course Project) and delete them
+
+# tar -> Archive tool for compression
+tar -cvf /backup/backup.tar /var/www/html/192_WEB_Project
+#c = Creation of tar file
+#v = Verbose the creation of the tar file
+#f = To grant access to all the files in the specified path
+
+-------------------------------------------------------------------------------------------------------------------------
+
+CRON -> Scheduler:
+#Syntax -> (Minute) (Hour) (Date) (Month) (Day of Week) (Command)
+			  0        4     28      *          *       /backup.sh
+
+crontab -e
+0 4 28 * * /backup.sh

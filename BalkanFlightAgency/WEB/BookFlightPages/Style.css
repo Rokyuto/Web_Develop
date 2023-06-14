@@ -1,0 +1,209 @@
+:root{
+    --transparencyColor:rgba(0,0,0,0.5);
+    --white:rgb(255,255,255);
+    --blueTransparency:rgba(52, 150, 255, 0.5);
+}
+
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    /* display: grid;
+    height: 100%;
+    width: 100%;
+    place-items: center; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("./Images/BALKAN-Bulgarian-Airlines-2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.Container_FlightForm {
+    max-width: 600px;
+    background-color:var(--transparencyColor);
+    box-shadow: 0 0 10px var(--transparencyColor);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--white);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.Menu_FromAirport, .Menu_ToAirport, .Container_DepartDatePicker, .Container_FlightClassChoice{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.OptionsList_FromAirport , .OptionsList_ToAirport{
+    display: none;
+}   
+
+#SelectField_FromAirport_Text, #SelectField_ToAirport_Text{
+    width: 100%;
+    padding: 0.8em 0.8em; /* 15px 20px */
+    margin: 10px 0 0 0;
+    background: var(--white);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: 0;
+    outline: none;
+}
+
+#OptionsList_FromAirport , #OptionsList_ToAirport{
+    width: 100%;
+    max-height: 15em; /* 240px */
+    margin-top: 5px;
+    padding: 0;
+    background-color: var(--white);
+    overflow-y: scroll;
+    box-shadow: -1px 1px 5px 0px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    font-size: 1.1em;
+    list-style: none;
+
+    /* Style for the menus to appear on top of (over) the other form elements */
+    position: absolute;
+    z-index: 5;
+    top: 75px;
+}
+
+.Option_FromAirport, .Option_ToAirport{
+    width: 100%;
+    font-size: 1.2em;
+    padding: 0.7em 0 0.7em 3em; /* top right bottom left */
+    list-style: none;
+    position: relative;
+}
+
+/* Style for: From and To Airport Options' Image */
+.Option_FromAirport img, .Option_ToAirport img{
+    width:25px;
+    position: absolute;
+    left: 1em; 
+}
+
+/* Style for: On Hover From and To Airport Options */
+.Option_FromAirport:hover, .Option_ToAirport:hover{
+    background-color: var(--blueTransparency);
+    cursor: pointer;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--white);
+}
+
+input,
+select {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--white);
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+/* ---------------------- BUTTONS ---------------------- */
+
+/* Style for: Swap Button Div Container */
+.Container_SwapButton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0px;
+    height: 40%;
+} 
+
+/* Style for: Swap Airports Button */
+.Swap_Airports{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
+    background-image: url("Images/SwapButton.png");
+    cursor: pointer;
+    transition: all 1s ease-in-out;
+}
+
+/* On Button Click Animation Call */
+.Swap_Airports:hover{
+    transform: rotate(180deg) ;
+}
+
+/* Style for: Button to show flights with the specified setup */
+.Show_Flights{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #009579;
+    color: var(--white);
+    font-size: 1.2em;
+    margin-top: 20px;
+    cursor: pointer;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+/* Style for: Button to show flights On Click Effect */
+.Show_Flights:active{
+    background-color: #006855 !important; 
+}
+
+/* Style for: Button to show flights On Hover Effect */
+.Show_Flights:hover{
+    background-color: #00dbb3;
+}
+
+/* ---------------------- VISIBILITIES ---------------------- */
+
+/* Style for: Airports Menu Elements | By default Airports Menus will be hidden */
+.OptionsList_FromAirport, .OptionsList_ToAirport{
+    visibility: hidden;
+}
+
+.back {
+    position: absolute;
+    top: 2%;
+    left:2%;
+    background:#009579;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 10px 10px;
+}
+
+.back:hover{
+    background:#00dbb3;
+}
+
+.back:active{
+    background:#006855;
+}

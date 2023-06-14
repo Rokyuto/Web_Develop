@@ -1,0 +1,4 @@
+idusers,username,email,password,isAdmin
+1,Admin,admin@gmail.com,$2y$10$2pD.cbo9V4kNf2uamufPTus8174PRfsnImFk83re22OcV/0UM8axG,1
+2,Viksata,19205@uktc-bg.com,$2y$10$EE6OW6EAGBlNMUqFUNBvbej/dSK89HA899Jc75L9dMoghoL0OfRkS,1
+3,Test,test@gmail.com,$2y$10$ogH2t03.JVfKkncWEzXRCOaJsQr/WIKFGHZgvNz.WJghTZ8i6kf8y,0

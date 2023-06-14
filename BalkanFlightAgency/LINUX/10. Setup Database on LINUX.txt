@@ -1,0 +1,37 @@
+sudo systemctl start mysql -> Run the MySQL system service
+sudo systemctl enable mysql -> Enable MySQL to start when the system startup
+
+sudo systemctl status mysql -> Check MySQL status
+
+sudo mysql -u root -p -> Access the MySQL shell as root
+
+-------------------------------------------------------------------------------------------------
+Import and execute SQL Files:
+
+sudo mysql -u root -p < UKTC/192_WEB_Project/Database/CreateDatabase.sql -> Import SQL File to Create Database as ROOT
+sudo mysql -u root -p < UKTC/192_WEB_Project/Database/CreateUser.sql -> Import SQL File to Create Helper user as ROOT
+sudo mysql -u root -p < UKTC/192_WEB_Project/Database/InsertCities.sql -> Import SQL File to Insert Data in Cities Table
+sudo mysql -u root -p < UKTC/192_WEB_Project/Database/InsertFlights.sql -> Import SQL File to Insert Data in Flights Table
+sudo mysql -u root -p < UKTC/192_WEB_Project/Database/InsertUsers.sql -> Import SQL File to Insert Data in Users Table
+sudo mysql -u root -p < UKTC/192_WEB_Project/Database/InsertUserFlight.sql -> Import SQL File to Insert Data in UserFlights Table
+
+-------------------------------------------------------------------------------------------------
+Commands:
+
+CREATE DATABASE [database_name]; -> Create Database
+show databases; -> Show all databases
+USE [database_name]; -> Use database
+show tables; -> Show all tables in the used database
+exit; -> Exit the SQL Service
+
+INSERT INTO table_name (column1, column2, column3,..) VALUES ( value1, value2, value3,..); -> Insert Data into Table
+
+sudo mysqldump -u username -p database_to_export > file.sql -> Export Database
+
+Import SCV File in table:
+LOAD DATA INFILE '/path/to/example.csv' 
+INTO TABLE `users`
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;

@@ -1,0 +1,24 @@
+UFW = Uncomplicated Firewall
+It's using for network security
+
+Install:
+	sudo apt install ufw
+
+Setup server's trafic:
+	sudo ufw default deny incoming -> From outside you can't connect
+	sudo ufw default allow outgoing -> Application in the server is able to reach the world outside the server
+	
+Setup server's connections:
+	sudo ufw allow ssh -> Allow SSH connections to the server
+	sudo ufw allow 22 -> Allow all connections of port 22, the default SSH listening port
+	
+	sudo ufw allow http -> The protocol which unencrypted web servers use
+	sudo ufw allow 80 -> Unencrypted web servers' port
+	
+	sudo ufw allow https -> The protocol which encrypted web servers use
+	sudo ufw allow 443 -> Encrypted web servers' port
+
+Start the Firewall:
+	sudo ufw enable
+	
+	

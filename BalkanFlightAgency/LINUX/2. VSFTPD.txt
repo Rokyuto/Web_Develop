@@ -1,0 +1,8 @@
+VSFTPD is a File Server
+Setup:
+	sudo apt-get install vsftpd -> Install the File Server vsftpd
+	sudo systemctl status vsftpd -> Check File Server's Status
+	sudo vim /etc/vsftpd.conf -> Open vsftpd File Server Configuration File
+	!!!!!!!!!! -> Uncoment write_enable=YES (Esc + : + qa to save changes)
+	sudo systemctl restart vsftpd -> Restart the File Server to apply the changes in the config file
+	* Now we are able to create,delete,upload or download files by FileZile 

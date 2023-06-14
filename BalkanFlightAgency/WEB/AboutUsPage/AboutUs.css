@@ -1,0 +1,12 @@
+
+
+/* .card {
+    width: 18rem;
+} */
+
+@media (max-width:900){
+    .card-group, .card-body, .card{
+        width: 100% !important;
+    }
+    
+}
