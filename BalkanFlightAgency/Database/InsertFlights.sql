@@ -9,3 +9,4 @@ INSERT INTO Flights (FromCityID,ToCityID,FlightDate,FlightDepartTime,FlightDurat
 INSERT INTO Flights (FromCityID,ToCityID,FlightDate,FlightDepartTime,FlightDuration,FlightClass,FlightPrice) VALUES ("9","8","2024-4-23","6:30:00","3:10:00","Economy","50");
 INSERT INTO Flights (FromCityID,ToCityID,FlightDate,FlightDepartTime,FlightDuration,FlightClass,FlightPrice) VALUES ("1","8","2024-1-15","14:10:00","0:35:00","Business","65");
 INSERT INTO Flights (FromCityID,ToCityID,FlightDate,FlightDepartTime,FlightDuration,FlightClass,FlightPrice) VALUES ("1","13","2023-9-21","18:30:00","1:00:00","First Class","95");
+INSERT INTO Flights (FromCityID,ToCityID,FlightDate,FlightDepartTime,FlightDuration,FlightClass,FlightPrice) VALUES ("4","6","2023-6-30","15:30:00","2:00:00","Business","150");
